@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timeappv2
+  labels:
+    app: timeappv2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: timeappv2
+  template:
+    metadata:
+      labels:
+        app: timeappv2
+    spec:
+      containers:
+      - name: timeappv2
+        image: timeapp8
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            memory: "60Mi"
+            cpu: "250m" # same as 0.25
+          limits:
+            memory: "100Mi"
+            cpu: "500m" # same as 0.5
+        env:
+        - name: ASPNETCORE_URLS
+          value: "http://*:8000"
+        - name: TZ
+          value: "America/Los_Angeles"
+        securityContext:
+          allowPrivilegeEscalation: false
+           #runAsNonRoot: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: timeappv2
+spec:
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8000
+  selector:
+      app: timeappv2
+
