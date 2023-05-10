@@ -2,9 +2,9 @@ Project that demonstrates blue-green deployment of a simple webapp running in ku
 
 Depends on:
 Docker-Windows with kubernetes enabled
--Helm (https://helm.sh/docs/intro/install/)
--Dotnet sdk (if not building app in container https://dotnet.microsoft.com/en-us/download)
--Haproxy Gateway Api (https://haproxy-ingress.github.io/docs/configuration/gateway-api/)
+* Helm (https://helm.sh/docs/intro/install/)
+* Dotnet sdk (if not building app in container https://dotnet.microsoft.com/en-us/download)
+* Haproxy Gateway Api (https://haproxy-ingress.github.io/docs/configuration/gateway-api/)
 
 
 Create the docker image, only used locally so its important to tag them
