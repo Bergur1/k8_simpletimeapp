@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: timeappv2
-        image: timeapp8
+        image: timeapp:v2
         imagePullPolicy: Never
         ports:
         - containerPort: 8000
